@@ -4,9 +4,6 @@
 #include <stdio.h>
 #include <common_audio/vad/include/webrtc_vad.h>
 #include <stdlib.h>
-#include "simple_vad.h"
-#include "period_format.h"
-#include "file_cut.h"
 #include "src/simple_vad.h"
 #include "src/file_cut.h"
 #include "src/period_format.h"
@@ -107,4 +104,5 @@ int add_period_activity(struct periods *per, int is_active, int is_last) {
         periods_print(per);
         printf("total frames %d\n", count);
     }
+    return count;
 }
