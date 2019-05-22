@@ -2,9 +2,14 @@ package com.github.ulez.vad_2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private PcmSplite pcmSplite;
+    private Button button;
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -17,8 +22,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Example of a call to a native method
-        TextView tv = findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+        pcmSplite = new PcmSplite();
+        button = findViewById(R.id.btStart);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int xx = pcmSplite.j2cSplitePCM("/sdcard/pcm/16k_1.pcm", "16k_1.pcm", "/sdcard/output_pcm");
+                button.setText("切割成功：" + xx);
+            }
+        });
+
     }
 
     /**
