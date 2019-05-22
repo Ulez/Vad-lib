@@ -23,7 +23,7 @@ int add_period_activity(struct periods *per, int is_active, int is_last);
 
 //int add_cut_file_activity(struct cut_info *cut, int is_active, int is_last);
 
-JNIEXPORT jint JNICALL Java_com_github_ulez_vad_12_PcmSplite_j2cSplitePCM
+extern "C" JNIEXPORT jint JNICALL Java_com_github_ulez_vad_12_PcmSplite_j2cSplitePCM
         (JNIEnv *env, jobject, jstring filename1, jstring output_filename_prefix1,
          jstring output_dir1) {
     const char *filename = env->GetStringUTFChars(filename1, 0);
