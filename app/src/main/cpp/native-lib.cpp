@@ -1,5 +1,6 @@
 #include <jni.h>
 #include <string>
+#include "com_github_ulez_vad_2_PcmSplite.h"
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_github_ulez_vad_12_MainActivity_stringFromJNI(
